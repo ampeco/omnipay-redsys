@@ -11,7 +11,7 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
 {
     use CommonParameters;
 
-    public const API_URL_PROD = 'https://sis-t.redsys.es/sis/';
+    public const API_URL_PROD = 'https://sis.redsys.es/sis/';
     public const API_URL_TEST = 'https://sis-t.redsys.es:25443/sis/';
 
     public const TIMEOUT_IN_SECONDS = 30;
