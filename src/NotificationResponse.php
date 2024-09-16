@@ -77,7 +77,7 @@ class NotificationResponse implements ResponseInterface
         $paymentMethod->cardType = $cardType;
         $paymentMethod->expirationMonth = (int) $expireMonth;
         $paymentMethod->expirationYear = (int) $expireYear;
-        $paymentMethod->last4 = substr($this->responseData['Ds_Card_Number'], -4);
+        $paymentMethod->last4 = isset($this->responseData['Ds_Card_Number']) ? substr($this->responseData['Ds_Card_Number'], -4) : null;
 
         return $paymentMethod;
     }
