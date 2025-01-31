@@ -128,7 +128,12 @@ class Response extends AbstractResponse
 
     public function getMessage()
     {
-        return $this->notErrorResponse() && $this->hasResponseCode() ? self::RESPONSE_CODE_MAPPING[$this->data['Ds_Response']] : $this->getError();
+        if ($this->notErrorResponse() && $this->hasResponseCode())  {
+            return array_key_exists($this->data['Ds_Response'], self::RESPONSE_CODE_MAPPING)
+                ? self::RESPONSE_CODE_MAPPING[$this->data['Ds_Response']] : '';
+        }
+
+        return $this->getError();
     }
 
     public function getCode()
